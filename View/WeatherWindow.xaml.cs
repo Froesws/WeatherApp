@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WeatherApp
+namespace WeatherApp.View
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para WeatherWindow.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WeatherWindow : Window
     {
-        public MainWindow()
+        public WeatherWindow()
         {
             InitializeComponent();
         }

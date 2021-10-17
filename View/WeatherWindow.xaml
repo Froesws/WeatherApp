@@ -1,0 +1,19 @@
+﻿<Window x:Class="WeatherApp.View.WeatherWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeatherApp.View"
+             mc:Ignorable="d" 
+             Height="600" Width="300"
+             Title="WeatherApp">
+    <Grid Margin="0,-4,0,4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="10,20,10,0" Background="DodgerBlue">
+            <TextBlock Text="Bom dia Brasil"  Height="50"/>
+        </StackPanel>
+    </Grid>
+</Window>
