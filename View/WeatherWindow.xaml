@@ -7,13 +7,21 @@
              mc:Ignorable="d" 
              Height="600" Width="300"
              Title="WeatherApp">
-    <Grid Margin="0,-4,0,4">
+    <Grid Margin="0,-4,0,4" Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="10,20,10,0" Background="DodgerBlue">
-            <TextBlock Text="Bom dia Brasil"  Height="50"/>
+        
+        <StackPanel Grid.Row="0" Margin="10,20,10,0" Background="WhiteSmoke">
+            <TextBlock Text="Search your city"  Height="20"/>
+            <TextBox Height="20"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0" Background="#00a2ed">
+            <TextBlock Text="San Francisco - USA" FontSize="22"  FontWeight="Bold" Foreground="FloralWhite" Margin="20,0"/>
+            <TextBlock HorizontalAlignment="Right" Text="22ºC" FontSize="22"  FontWeight="Bold" Foreground="FloralWhite" Margin="20,0"/>
+            <TextBlock FontSize="22"  FontWeight="Bold" Foreground="FloralWhite" Text="It's a Sunny day" HorizontalAlignment="Center" Margin="20,0"/>
         </StackPanel>
     </Grid>
 </Window>
