@@ -16,6 +16,16 @@
         <StackPanel Grid.Row="0" Margin="10,20,10,0" Background="WhiteSmoke">
             <TextBlock Text="Search your city"  Height="20"/>
             <TextBox Height="20"/>
+            <Button Height="20" Content="Search" HorizontalContentAlignment="Center"  />
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Margin="0" Background="#00a2ed">
