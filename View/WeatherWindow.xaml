@@ -2,12 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:WeatherApp.ViewModel"
              xmlns:local="clr-namespace:WeatherApp.View"
              mc:Ignorable="d" 
              Height="600" Width="300"
              Title="WeatherApp">
-    <Grid Margin="0,-4,0,4" Background="WhiteSmoke">
+    
+    <Window.Resources>
+        <vm:WeatherViewModel x:Key="vm"/>
+    </Window.Resources>
+    
+    <Grid Margin="0,-4,0,4" Background="WhiteSmoke" DataContext="{StaticResource vm}">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
@@ -15,7 +21,7 @@
         
         <StackPanel Grid.Row="0" Margin="10,20,10,0" Background="WhiteSmoke">
             <TextBlock Text="Search your city"  Height="20"/>
-            <TextBox Height="20"/>
+            <TextBox Height="20" Text="{Binding Query, Mode=TwoWay}"/>
             <Button Height="20" Content="Search" HorizontalContentAlignment="Center"  />
             <ListView>
                 <ListView.ItemTemplate>
@@ -28,10 +34,25 @@
             </ListView>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Margin="0" Background="#00a2ed">
-            <TextBlock Text="San Francisco - USA" FontSize="22"  FontWeight="Bold" Foreground="FloralWhite" Margin="20,0"/>
-            <TextBlock HorizontalAlignment="Right" Text="22ºC" FontSize="22"  FontWeight="Bold" Foreground="FloralWhite" Margin="20,0"/>
-            <TextBlock FontSize="22"  FontWeight="Bold" Foreground="FloralWhite" Text="It's a Sunny day" HorizontalAlignment="Center" Margin="20,0"/>
+        <StackPanel Grid.Row="1" DataContext="{Binding CurrentConditions}" Margin="0" Background="#00a2ed">
+            <TextBlock DataContext ="{StaticResource vm}" 
+                       Text="{Binding SelectedCity.LocalizedName }"
+                       FontSize="22"  
+                       FontWeight="Bold" 
+                       Foreground="FloralWhite" 
+                       Margin="20,0"/>
+            <TextBlock HorizontalAlignment="Right" 
+                       Text="{Binding Temperature.Metric.Value, StringFormat={}{0}ºC}" 
+                       FontSize="22"  
+                       FontWeight="Bold" 
+                       Foreground="FloralWhite" 
+                       Margin="20,0"/>
+            <TextBlock FontSize="22" 
+                       FontWeight="Bold" 
+                       Foreground="FloralWhite" 
+                       Text="{Binding WeatherText}" 
+                       HorizontalAlignment="Center" 
+                       Margin="20,0"/>
         </StackPanel>
     </Grid>
 </Window>
