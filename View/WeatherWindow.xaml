@@ -20,9 +20,15 @@
         </Grid.RowDefinitions>
         
         <StackPanel Grid.Row="0" Margin="10,20,10,0" Background="WhiteSmoke">
-            <TextBlock Text="Search your city"  Height="20"/>
-            <TextBox Height="20" Text="{Binding Query, Mode=TwoWay}"/>
-            <Button Height="20" Content="Search" HorizontalContentAlignment="Center"  />
+            <TextBlock Text="Search your city"  
+                       Height="20"/>
+            <TextBox Height="20" 
+                     Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Height="20" 
+                    Content="Search" 
+                    HorizontalContentAlignment="Center"
+                    Command="{Binding SearchCommand}"
+                    CommandParameter="{Binding Query}"/>
             <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
